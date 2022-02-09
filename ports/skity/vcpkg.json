@@ -1,0 +1,10 @@
+{
+  "name": "skity",
+  "version": "0.1.0-beta",
+  "port-version": 0,
+  "description": [
+    "A light weight 2D Vector Graphic renderer library for OpenGL and Vulkan"
+  ],
+  "homepage": "https://github.com/RuiwenTang/Skity",
+  "license": "MIT"
+}
