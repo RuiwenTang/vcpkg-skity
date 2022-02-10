@@ -4,51 +4,16 @@ FEATURES
     vulkan  VULKAN_BACKEND
 )
 
-set(REF v0.1.0-beta)
-set(HEAD_REF master)
+set(REF v0.1.1-beta)
+set(HEAD_REF main)
 
 vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
   REPO RuiwenTang/Skity
   REF ${REF}
-  SHA512 b2d29fa85fcb3373e489398731485470fb995cbe9005bf747bf5bef7742ef1b246ea68837831723345bf4cde72e1a42d7328b653a391a538c52d438829d28b55
+  SHA512 6a9990aeee55236499299207fa2bdacb2c404a76fd77b4143f16690adb2c88d81ec25468bb8a7b9ce3249fe40f6519c76d5c081ce5f39294505f3e1902b6bbec
   HEAD_REF ${HEAD_REF}
 )
-
-# vcpkg_from_github or vcpkg_from_git don't download submodules and get rid of the .git folder
-# restore it and update submodules
-
-# vcpkg_from_github or vcpkg_from_git don't download submodules and get rid of the .git folder
-# restore it and update submodules
-
-if(NOT EXISTS "${SOURCE_PATH}/.git")
-    message(STATUS "Updating submodules")
-
-    if(VCPKG_USE_HEAD_VERSION)
-        set(CLONE_REF ${HEAD_REF})
-    else()
-        set(CLONE_REF ${REF})
-    endif()
-
-    vcpkg_find_acquire_program(GIT)
-
-    set(COMMANDS
-        "${GIT} clone --depth 1 --branch ${CLONE_REF} --bare https://github.com/RuiwenTang/Skity.git .git"
-        "${GIT} config core.bare false"
-        "${GIT} reset --hard"
-        "${GIT} submodule update --init --recursive --depth=1"
-    )
-
-    foreach(COMMAND ${COMMANDS})
-        separate_arguments(COMMAND)
-        vcpkg_execute_required_process(
-            ALLOW_IN_DOWNLOAD_MODE
-            COMMAND ${COMMAND}
-            WORKING_DIRECTORY ${SOURCE_PATH}
-            LOGNAME update-submodules
-        )
-    endforeach()
-endif()
 
 vcpkg_configure_cmake(
   SOURCE_PATH "${SOURCE_PATH}"
@@ -58,6 +23,7 @@ vcpkg_configure_cmake(
     -DENABLE_LOG=OFF
     -DBUILD_EXAMPLE=OFF
     -DBUILD_TEST=OFF
+    -DSKITY_VCPKG=ON
 )
 
 vcpkg_install_cmake()

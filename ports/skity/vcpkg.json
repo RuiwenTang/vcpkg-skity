@@ -6,5 +6,12 @@
     "A light weight 2D Vector Graphic renderer library for OpenGL and Vulkan"
   ],
   "homepage": "https://github.com/RuiwenTang/Skity",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": [
+    "glm",
+    "pugixml",
+    "spdlog",
+    "vulkan-headers",
+    "vulkan-memory-allocator"
+  ]
 }
