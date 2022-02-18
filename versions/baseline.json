@@ -1,5 +1,6 @@
 {
   "default": {
-    "skity": { "baseline": "0.1.0-beta", "port-version": 0 }
+    "skity": { "baseline": "0.1.0-beta", "port-version": 0 },
+    "skity-yoga": { "baseline": "0.1.0-skity", "port-version": 0 }
   }
 }

@@ -1,0 +1,11 @@
+{
+  "name": "skity-yoga",
+  "version": "0.1.0-skity",
+  "port-version": 0,
+  "description": [
+    "self hosting yoga library for used in vcpkg"
+  ],
+  "homepage": "https://github.com/RuiwenTang/yoga",
+  "license": "MIT",
+  "dependencies": []
+}
