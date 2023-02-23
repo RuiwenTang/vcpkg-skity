@@ -12,6 +12,9 @@
     "pugixml",
     "spdlog",
     "vulkan-headers",
-    "vulkan-memory-allocator"
+    "vulkan-memory-allocator",
+    "freetype",
+    "libpng",
+    "libjpeg-turbo"
   ]
 }
